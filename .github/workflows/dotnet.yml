@@ -1,4 +1,4 @@
-name: .NET Framework 4.8
+name: .NET
 
 on:
   push:
@@ -13,18 +13,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v2
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
 
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v2
+    - name: Restore
+      run: dotnet restore
 
-    - name: Restore NuGet packages
-      run: nuget restore GildedRose.sln
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
 
-    - name: Build with MSBuild
-      run: msbuild GildedRose.sln /p:Configuration=Release
-
-    - name: Run tests
-      run: |
-        vstest.console.exe .\src\GildedRose.Tests\bin\Release\GildedRose.Tests.dll
+    - name: Test
+      run: dotnet test --configuration Release --no-build --verbosity normal
