@@ -22,7 +22,7 @@ namespace GildedRose.Tests
                 new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            var app = new Program(items);
+            var app = new GildedRoseApp(items);
 
             // Act: simulate 10 days
             var sb = new StringBuilder();
