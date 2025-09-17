@@ -20,6 +20,9 @@ bld/
 build_output/
 .build/
 
+# Visual Studio / Copilot index files
+.vs/
+
 # Roslyn cache directories
 *.ide/
 
@@ -196,7 +199,8 @@ FakesAssemblies/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
