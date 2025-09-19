@@ -6,8 +6,8 @@ namespace GildedRose.Tests
 {
     public class GildedRoseTests
     {
-        private static GildedRoseApp CreateApp(params Item[] items) =>
-            new GildedRoseApp(new List<Item>(items));
+        private static Inventory CreateApp(params Item[] items) =>
+            new Inventory(new List<Item>(items));
 
         // --- Normal Items ---
         [Fact]

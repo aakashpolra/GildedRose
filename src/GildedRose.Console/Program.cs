@@ -5,20 +5,20 @@ namespace GildedRose.Console
 {
     public class Program
     {
-        private readonly GildedRoseApp _app;
+        private readonly Inventory _inventory;
 
         /// <summary>
         /// Initializes the program / app with default inventory items.
         /// </summary>
-        public Program() : this(new GildedRoseApp(GetDefaultItems())) { }
+        public Program() : this(new Inventory(GetDefaultItems())) { }
 
         /// <summary>
-        /// Initializes the program with the given underlying app.
+        /// Initializes the program with the given inventory.
         /// </summary>
-        /// <param name="app">Application containing business logic for GildedRose inventory management.</param>
-        public Program(GildedRoseApp app)
+        /// <param name="inventory">Current product inventory.</param>
+        public Program(Inventory inventory)
         {
-            _app = app;
+            _inventory = inventory;
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace GildedRose.Console
         // Note: Keeping `UpdateQuality()` method signature untouched as per the requirements.
         public void UpdateQuality()
         {
-            _app.UpdateQuality();
+            _inventory.UpdateQuality();
         }
 
         static void Main(string[] args)

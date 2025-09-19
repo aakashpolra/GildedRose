@@ -2,16 +2,26 @@
 
 namespace GildedRose.Core
 {
-    public class GildedRoseApp
+    /// <summary>
+    /// Represents the product inventory and contains methods to update stock (expiry and quality values).
+    /// </summary>
+    public class Inventory
     {
         private const string AgedBrie = "Aged Brie";
         private const string BackstagePasses = "Backstage passes to a TAFKAL80ETC concert";
         private const string Sulfuras = "Sulfuras, Hand of Ragnaros";
         private const int MaxQuality = 50;
 
-        public IReadOnlyList<Item> Items { get; private set; }
+        /// <summary>
+        /// Inventory items.
+        /// </summary>
+        public IReadOnlyList<Item> Items { get; }
 
-        public GildedRoseApp(IReadOnlyList<Item> items) { Items = items; }
+        /// <summary>
+        /// Initializes a new inventory with given items.
+        /// </summary>
+        /// <param name="items">Stock items to initialize the inventory with.</param>
+        public Inventory(IReadOnlyList<Item> items) { Items = items; }
 
         public void UpdateQuality()
         {
