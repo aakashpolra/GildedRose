@@ -6,8 +6,8 @@ namespace GildedRose.Tests
 {
     public class GildedRoseTests
     {
-        private static GildedRoseApp CreateApp(params Item[] items) =>
-            new GildedRoseApp(new List<Item>(items));
+        private static Inventory CreateApp(params Item[] items) =>
+            new Inventory(new List<Item>(items));
 
         // --- Normal Items ---
         [Fact]
@@ -15,7 +15,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Normal Item", SellIn = 10, Quality = 20 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(9, app.Items[0].SellIn);
             Assert.Equal(19, app.Items[0].Quality);
@@ -26,7 +26,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Normal Item", SellIn = 0, Quality = 20 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(-1, app.Items[0].SellIn);
             Assert.Equal(18, app.Items[0].Quality);
@@ -37,7 +37,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Normal Item", SellIn = 5, Quality = 0 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(0, app.Items[0].Quality);
         }
@@ -48,7 +48,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Aged Brie", SellIn = 10, Quality = 20 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(21, app.Items[0].Quality);
         }
@@ -58,7 +58,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Aged Brie", SellIn = 5, Quality = 50 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(50, app.Items[0].Quality);
         }
@@ -68,7 +68,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Aged Brie", SellIn = 0, Quality = 48 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(50, app.Items[0].Quality);  // matches current legacy behaviour
         }
@@ -79,7 +79,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(10, app.Items[0].SellIn);
             Assert.Equal(80, app.Items[0].Quality);
@@ -91,7 +91,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 15, Quality = 20 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(21, app.Items[0].Quality);
         }
@@ -101,7 +101,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 20 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(22, app.Items[0].Quality);
         }
@@ -111,7 +111,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 20 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(23, app.Items[0].Quality);
         }
@@ -121,7 +121,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 20 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(0, app.Items[0].Quality);
         }
@@ -131,7 +131,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 49 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(50, app.Items[0].Quality);
         }
@@ -142,7 +142,7 @@ namespace GildedRose.Tests
         {
             var app = CreateApp(new Item { Name = "Conjured Mana Cake", SellIn = 3, Quality = 6 });
 
-            app.UpdateQuality();
+            app.UpdateStock();
 
             Assert.Equal(4, app.Items[0].Quality); // expectation once implemented
         }

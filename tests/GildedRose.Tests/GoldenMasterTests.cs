@@ -22,7 +22,7 @@ namespace GildedRose.Tests
                 new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            var app = new GildedRoseApp(items);
+            var app = new Inventory(items);
 
             // Act: simulate 10 days
             var sb = new StringBuilder();
@@ -35,7 +35,7 @@ namespace GildedRose.Tests
                     sb.AppendLine($"{item.Name}, {item.SellIn}, {item.Quality}");
                 }
                 sb.AppendLine();
-                app.UpdateQuality();
+                app.UpdateStock();
             }
 
             var output = sb.ToString();
