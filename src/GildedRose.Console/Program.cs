@@ -27,7 +27,7 @@ namespace GildedRose.Console
         // Note: Keeping `UpdateQuality()` method signature untouched as per the requirements.
         public void UpdateQuality()
         {
-            _inventory.UpdateQuality();
+            _inventory.UpdateStock();
         }
 
         static void Main(string[] args)

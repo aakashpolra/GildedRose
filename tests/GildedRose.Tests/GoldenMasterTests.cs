@@ -35,7 +35,7 @@ namespace GildedRose.Tests
                     sb.AppendLine($"{item.Name}, {item.SellIn}, {item.Quality}");
                 }
                 sb.AppendLine();
-                app.UpdateQuality();
+                app.UpdateStock();
             }
 
             var output = sb.ToString();
