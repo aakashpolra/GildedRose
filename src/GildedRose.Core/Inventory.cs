@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GildedRose.Core
 {
@@ -127,5 +129,15 @@ namespace GildedRose.Core
                 }
             }
         }
+
+        /// <summary>
+        /// Returns a string representation of the current inventory, listing all items with their SellIn and Quality values.
+        /// </summary>
+        public override string ToString() =>
+            "============================== Inventory ==============================" +
+            Environment.NewLine +
+            string.Join(Environment.NewLine, Items.Select(i => $"{i.Name}, SellIn: {i.SellIn}, Quality: {i.Quality}")) +
+            Environment.NewLine +
+            "=======================================================================";
     }
 }
