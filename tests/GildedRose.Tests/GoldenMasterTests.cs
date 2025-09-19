@@ -1,7 +1,7 @@
 ﻿using Xunit;
 using System.Collections.Generic;
 using System.Text;
-using GildedRose.Console;
+using GildedRose.Core;
 
 namespace GildedRose.Tests
 {
