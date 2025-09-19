@@ -24,17 +24,33 @@ namespace GildedRose.Console
         /// <summary>
         /// Updates the quality and days-to-expiry (SellIn) values of the products in the inventory.
         /// </summary>
+        /// <seealso cref="Inventory.UpdateStock(int)"/>
         // Note: Keeping `UpdateQuality()` method signature untouched as per the requirements.
-        public void UpdateQuality()
-        {
-            _inventory.UpdateStock();
-        }
+        public void UpdateQuality() => _inventory.UpdateStock();
+
+        /// <summary>
+        /// Prints the current inventory items to the console.
+        /// </summary>
+        /// <seealso cref="Inventory.ToString"/>"/>
+        public void PrintCurrentInventory() => System.Console.WriteLine(_inventory);
 
         static void Main(string[] args)
         {
-            System.Console.WriteLine("OMGHAI!"); // Not sure if this is needed.
+            System.Console.WriteLine("Welcome to GildedRose Inventory Management System.");
+
+            System.Console.WriteLine("Initializing inventory with default items...");
             var program = new Program();
+
+            System.Console.WriteLine("Current Inventory:");
+            program.PrintCurrentInventory();
+
+            System.Console.WriteLine("Updating inventory for one day...");
             program.UpdateQuality();
+
+            System.Console.WriteLine("Inventory after one day:");
+            program.PrintCurrentInventory();
+
+            System.Console.WriteLine("Please press any key to exit.");
             System.Console.ReadKey();
         }
 
