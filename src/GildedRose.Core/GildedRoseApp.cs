@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GildedRose.Console
+namespace GildedRose.Core
 {
     public class GildedRoseApp
     {
@@ -11,7 +11,7 @@ namespace GildedRose.Console
 
         public IReadOnlyList<Item> Items { get; private set; }
 
-        public GildedRoseApp(IReadOnlyList<Item> items) { this.Items = items; }
+        public GildedRoseApp(IReadOnlyList<Item> items) { Items = items; }
 
         public void UpdateQuality()
         {
